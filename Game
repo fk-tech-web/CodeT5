@@ -1,0 +1,51 @@
+from easyAI import TwoPlayersGame, id_solve, Human_Player, AI_Player
+from easyAI.AI import TT
+class LastCoin_game(TwoPlayersGame):
+   def __init__(self, players):
+self.players = players
+self.nplayer = 1
+self.num_coins = 15
+self.max_coins = 4
+def possible_moves(self):
+   return [str(a) for a in range(1, self.max_coins + 1)]
+def make_move(self, move):
+   self.num_coins 
+            -= int(move)
+def win_game(self):
+   return self.num_coins <= 0
+def is_over(self):
+   return self.win()
+def score(self):
+   return 100 if self.win_game() else 0
+def show(self):
+   print(self.num_coins, 'coins left in the pile')
+if __name__ == "__main__":
+   tt = TT()
+   LastCoin_game.ttentry = lambda self: self.num_coins
+r, d, m = id_solve(LastCoin_game,
+   range(2, 20), win_score=100, tt=tt)
+print(r, d, m)
+game = LastCoin_game([AI_Player(tt), Human_Player()])
+game.play()
+d:2, a:0, m:1
+d:3, a:0, m:1
+d:4, a:0, m:1
+d:5, a:0, m:1
+d:6, a:100, m:4
+1 6 4
+15 coins left in the pile
+Move #1: player 1 plays 4 :
+11 coins left in the pile
+Player 2 what do you play ? 2
+Move #2: player 2 plays 2 :
+9 coins left in the pile
+Move #3: player 1 plays 3 :
+6 coins left in the pile
+Player 2 what do you play ? 1
+Move #4: player 2 plays 1 :
+5 coins left in the pile
+Move #5: player 1 plays 4 :
+1 coins left in the pile
+Player 2 what do you play ? 1
+Move #6: player 2 plays 1 :
+0 coins left in the pile
